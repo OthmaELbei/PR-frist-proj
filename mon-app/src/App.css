@@ -36,3 +36,38 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-color: rgb(61, 7, 112);
+}
+.parent {
+  margin: 100px auto;
+}
+.Form-name {
+  width: 600px;
+
+  background-color: rgb(197, 159, 232);
+  margin: 100px auto;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+}
+.child-Paront {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+.Style-rsolt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.483);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
