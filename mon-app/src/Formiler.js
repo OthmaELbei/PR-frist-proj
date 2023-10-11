@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import Resolte from "./Resolte";
+import Myinput from "./Myinput";
 
 export default function Formiler() {
   const [errorMassage, setEerrorMassage] = useState(null);
@@ -12,7 +13,7 @@ export default function Formiler() {
     chicked: false,
     slary: "",
   });
-  console.log(formlarperson);
+
   function handerformSunmit(event) {
     event.preventDefault();
     const { Age, Namber } = formlarperson;
@@ -24,10 +25,20 @@ export default function Formiler() {
     }
     setShowModal(true);
   }
+
   function handelclik() {
     if (showModal) {
       setShowModal(false);
     }
+  }
+  function forInputNameCompont(value) {
+    SetFormlarperson({ ...formlarperson, Namber: value });
+  }
+  function forInputAgeCompont(value) {
+    SetFormlarperson({ ...formlarperson, Age: value });
+  }
+  function forInputNameCompont(value) {
+    SetFormlarperson({ ...formlarperson, Name: value });
   }
   return (
     <div onClick={handelclik} className="child-Paront Form-name">
@@ -44,35 +55,24 @@ export default function Formiler() {
 
       <hr></hr>
 
-      <lapol>Name:</lapol>
-      <input
-        style={{ width: "100%", padding: "8px", outline: "none" }}
-        type="text"
+      <Myinput
+        inputValue="Name:"
         value={formlarperson.Name}
-        onChange={(event) => {
-          SetFormlarperson({ ...formlarperson, Name: event.target.value });
-        }}
-      ></input>
+        mySetNameINput={forInputNameCompont}
+      />
 
-      <lapol>Namber:</lapol>
-      <input
-        style={{ width: "100%", padding: "8px", outline: "none" }}
-        type="number"
+      <Myinput
+        inputValue="Nambers:"
         value={formlarperson.Namber}
-        onChange={(event) => {
-          SetFormlarperson({ ...formlarperson, Namber: event.target.value });
-        }}
-      ></input>
+        mySetNameINput={forInputNameCompont}
+      />
 
-      <lapol>Age:</lapol>
-      <input
-        style={{ width: "100%", padding: "8px", outline: "none" }}
-        type="number"
+      <Myinput
+        inputValue="Age:"
         value={formlarperson.Age}
-        onChange={(event) => {
-          SetFormlarperson({ ...formlarperson, Age: event.target.value });
-        }}
-      ></input>
+        mySetNameINput={forInputAgeCompont}
+      />
+
       <lapol>Are you an employee:</lapol>
       <input
         style={{ width: "30px", height: "30px" }}
@@ -82,6 +82,7 @@ export default function Formiler() {
           SetFormlarperson({ ...formlarperson, chicked: event.target.checked });
         }}
       ></input>
+
       <lapol>slary:</lapol>
       <select
         style={{ width: "100%", padding: "8px", outline: "none" }}
@@ -94,6 +95,7 @@ export default function Formiler() {
         <option>1000£ for senuer</option>
         <option>1500$ for Anjenuer</option>
       </select>
+
       <button
         style={{
           margin: "10px",
@@ -111,6 +113,7 @@ export default function Formiler() {
       >
         sapmet
       </button>
+
       <Resolte errorMassge={errorMassage} isVsiible={showModal} />
     </div>
   );
